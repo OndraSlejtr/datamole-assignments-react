@@ -38,16 +38,16 @@ Using the provided UI components, implement the following modifications, bugfixe
 
 -   [ ] **B1**: `List` content
     -   Fix the content alignment of the non-empty `List` component.
--   [ ] **B2**: `Footer` alignment
+-   [x] **B2**: `Footer` alignment
     -   Fix the `Layout` component so the `Footer` is always attached to the bottom of the `Layout`.
 
 _Fix all other bugs and visual imperfections you find._
 
 #### Features
 
--   [ ] **F1**: Default values in `Footer`
+-   [x] **F1**: Default values in `Footer`
     -   Modify the counters in `Footer` to show 0 when no value(s) are passed.
--   [ ] **F2**: Load todo items
+-   [x] **F2**: Load todo items
     -   After opening the application, todo items should be loaded from the server
     -   The todo items should be displayed in the `List` component.
 -   [ ] **F3**: Add a todo item
