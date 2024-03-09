@@ -16,9 +16,7 @@ type FooterProps = {
     doneItems?: number;
 };
 
-export const Footer = (props: FooterProps) => {
-    const { todoItems, doneItems } = props;
-
+export const Footer = ({ todoItems = 0, doneItems = 0 }: FooterProps) => {
     return (
         <FooterStyled>
             Todo: {todoItems}
