@@ -4,6 +4,10 @@ export const Layout = styled.main`
     display: flex;
     flex-direction: column;
 
+    footer {
+        margin-top: auto;
+    }
+
     width: 100%;
     max-width: 600px;
     min-height: 50vh;
