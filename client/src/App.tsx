@@ -1,18 +1,14 @@
 import { Container } from "./components/Container";
-import { Layout } from "./components/Layout";
 import { TodoTracker } from "./pages/TodoTracker";
 import { ThemeProvider } from "./components/providers/ThemeProvider";
-import { QueryClient, QueryClientProvider } from "react-query";
-
-const queryClient = new QueryClient()
+import { QueryClientProvider } from "react-query";
+import { queryClient } from "./query.client";
 
 export const App = () => (
     <ThemeProvider>
         <QueryClientProvider client={queryClient}>
             <Container>
-                <Layout>
-                    <TodoTracker></TodoTracker>
-                </Layout>
+                <TodoTracker></TodoTracker>
             </Container>
         </QueryClientProvider>
     </ThemeProvider>

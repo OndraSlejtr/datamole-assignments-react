@@ -5,15 +5,15 @@ import { useGetTodos } from "./hooks/useGetTodos";
 
 
 export const TodoTracker = () => {
-    const { data: dotos, isLoading, isFetching, isError, isSuccess, failureCount } = useGetTodos();
+    const [error, setError] = useState({ message: "", timestamp: 0 });
+    const addError = (message: string) => setError({ message, timestamp: Date.now() });
+
+    const { data: todos, isFetching, failureCount, isSuccess } = useGetTodos(addError);
 
     return (
         <>
-            <Header onItemAdd={() => console.warn("unimplemented")}>To Do app</Header>
-            
-            {isLoading && <p>Loading data...</p>}
-            {isFetching && failureCount > 0 && <p>Loading new data...</p>}
-            {isError && <p>Error loading data. 😔</p>}
+                {isFetching && failureCount > 0 && <p>Loading data...</p>}
+                {isSuccess && <TodoList items={todos} />}
 
             {isSuccess && <TodoList items={dotos} />}
 
