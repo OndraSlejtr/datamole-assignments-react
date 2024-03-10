@@ -9,15 +9,15 @@ export const TodoTracker = () => {
     const addError = (message: string) => setError({ message, timestamp: Date.now() });
 
     const { data: todos, isFetching, failureCount, isSuccess } = useGetTodos(addError);
+    const doneItems = todos?.filter((todo) => todo.isDone).length;
+    const todoItems = todos?.filter((todo) => !todo.isDone).length;
 
     return (
         <>
                 {isFetching && failureCount > 0 && <p>Loading data...</p>}
                 {isSuccess && <TodoList items={todos} />}
 
-            {isSuccess && <TodoList items={dotos} />}
-
-            <Footer />
+                <Footer doneItems={doneItems} todoItems={todoItems} />
         </>
     );
 };
