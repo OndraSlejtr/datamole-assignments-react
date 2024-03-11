@@ -18,7 +18,7 @@ export const TodoList = ({ items, sortFn, showErrorFn }: TodoListProps) => {
 
     return (
         <List>
-            {items.map((item) => (
+            {items.toSorted(sortFn).map((item) => (
                 <ListItem
                     {...item}
                     onItemDelete={() => {
