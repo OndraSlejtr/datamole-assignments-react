@@ -24,10 +24,10 @@ export const TodoTracker = () => {
         }
 
         if (todo1.isDone) {
-            return -1;
+            return 1;
         }
 
-        return 1;
+        return -1;
     };
 
     return (
