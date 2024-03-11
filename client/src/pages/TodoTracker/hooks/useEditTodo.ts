@@ -11,11 +11,11 @@ type todoEditDetails = {
 
 const editTodo = async ({ newLabel, oldTodo }: todoEditDetails): Promise<TodoItem> => {
     const res = await fetch(`${API_URL}/items/${oldTodo.id}`, {
-        method: "PUT",
+        method: "PATCH",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify({ ...oldTodo, label: newLabel }),
+        body: JSON.stringify({ label: newLabel }),
     });
 
     if (!res.ok) {
