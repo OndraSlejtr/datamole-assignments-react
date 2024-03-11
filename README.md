@@ -36,7 +36,7 @@ Using the provided UI components, implement the following modifications, bugfixe
 
 #### Bugs
 
--   [ ] **B1**: `List` content
+-   [x] **B1**: `List` content
     -   Fix the content alignment of the non-empty `List` component.
 -   [x] **B2**: `Footer` alignment
     -   Fix the `Layout` component so the `Footer` is always attached to the bottom of the `Layout`.
@@ -75,11 +75,11 @@ _Fix all other bugs and visual imperfections you find._
 
 #### Styling
 
--   [ ] **UI1**: `Header` "add" button alignment
+-   [x] **UI1**: `Header` "add" button alignment
     -   The "add" button should be aligned to the right in the `Header` component.
--   [ ] **UI2**: `ListItem` actions alignment
+-   [x] **UI2**: `ListItem` actions alignment
     -   Action buttons in the `ListItem` component should be aligned to the right.
--   [ ] **UI3**: `ListItem` actions visibility
+-   [x] **UI3**: `ListItem` actions visibility
     -   Action buttons in the `ListItem` component should be visible only when hovering over the `ListItem`.
 
 #### Stories

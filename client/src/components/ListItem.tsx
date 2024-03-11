@@ -16,6 +16,7 @@ const ListItemContent = styled.div`
     display: flex;
     align-items: center;
     flex-direction: row;
+    height: 30px;
 
     
     &:hover ${ActionItems} {
@@ -24,7 +25,8 @@ const ListItemContent = styled.div`
 `;
 
 const StyledListItem = styled.li`
-    height: 35px;
+    padding-bottom: 5px;
+    height: 30px;
 `;
 
 const Label = styled.label`
