@@ -9,6 +9,7 @@ const meta = {
         onItemDelete: { action: "removed" },
         onItemLabelEdit: { action: "edited" },
     },
+    parameters: { viewport: { defaultViewport: "tablet" } },
 } as Meta<typeof ListItem>;
 export default meta;
 type Story = StoryObj<typeof ListItem>;
@@ -20,6 +21,18 @@ export const ToDo: Story = {
 export const Done: Story = {
     args: {
         ...ToDo.args,
-        checked: true,
+        isDone: true,
     },
+};
+
+export const OnHover: Story = {
+    args: {
+        ...ToDo.args,
+        isDone: true,
+    },
+    parameters: { docs: { description: { story: "When hovered, ListItem display action card to the right." } } },
+};
+
+OnHover.parameters = {
+    pseudo: { hover: ['div'] },
 };

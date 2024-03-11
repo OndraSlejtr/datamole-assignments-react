@@ -27,6 +27,7 @@ const ListItemContent = styled.div`
 const StyledListItem = styled.li`
     padding-bottom: 5px;
     height: 30px;
+    list-style-type: none;
 `;
 
 const Label = styled.label`
