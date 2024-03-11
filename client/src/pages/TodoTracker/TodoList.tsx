@@ -2,6 +2,7 @@ import { List } from "../../components/List";
 import { ListItem } from "../../components/ListItem";
 import { TodoItem } from "../../types/todo";
 import { useEditTodo } from "./hooks/useEditTodo";
+import { useUpdateTodoStatus } from "./hooks/useUpdateTodoStatus";
 
 type TodoListProps = {
     items: TodoItem[];
@@ -10,6 +11,7 @@ type TodoListProps = {
 
 export const TodoList = ({ items, showErrorFn }: TodoListProps) => {
     const { mutate: editTodo } = useEditTodo(showErrorFn);
+    const { mutate: updateTodoStatus } = useUpdateTodoStatus(showErrorFn);
 
     return (
         <List>
@@ -20,7 +22,7 @@ export const TodoList = ({ items, showErrorFn }: TodoListProps) => {
                         console.error("Unimplemented");
                     }}
                     onItemDoneToggle={() => {
-                        console.error("Unimplemented");
+                        updateTodoStatus(item);
                     }}
                     onItemLabelEdit={(newLabel: string) => {
                         editTodo({ newLabel, oldTodo: item });

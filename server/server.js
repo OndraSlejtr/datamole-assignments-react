@@ -20,7 +20,7 @@ server.put("/items/:id/completion", (req, res) => {
     const currentlyCompleted = editedItem.value().isDone;
     editedItem.assign({ isDone: !currentlyCompleted, finishedAt: currentlyCompleted ? undefined : Date.now() }).write();
 
-    return res.sendStatus(204);
+    return res.status(200).send(editedItem);
 });
 
 server.use((req, res, next) => {
