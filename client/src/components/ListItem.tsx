@@ -6,10 +6,21 @@ import { Checkbox } from "./Checkbox";
 import { useToggle } from "../hooks/useToggle";
 import { Form } from "./form";
 
-const StyledListItemContent = styled.div`
+
+const ActionItems = styled.div`
+    margin-left: auto;
+    display: none;
+`;
+
+const ListItemContent = styled.div`
     display: flex;
     align-items: center;
     flex-direction: row;
+
+    
+    &:hover ${ActionItems} {
+        display: block;
+    }
 `;
 
 const StyledListItem = styled.li`
@@ -20,9 +31,6 @@ const Label = styled.label`
     margin-left: 15px;
 `;
 
-const ActionItemsStyled = styled.div`
-    margin-left: auto;
-`;
 
 export type ListItemProp = {
     label: string;
@@ -48,12 +56,12 @@ export const ListItem = (props: ListItemProp) => {
                     onCancel={toggleEditForm}
                 ></Form>
             ) : (
-                <StyledListItemContent>
+                <ListItemContent>
                     <>
                         <Checkbox checked={isDone} onCheckedChange={onItemDoneToggle} />
                         <Label>{label}</Label>
                     </>
-                    <ActionItemsStyled>
+                    <ActionItems>
                         <button onClick={onItemDelete}>
                             <TrashIcon />
                         </button>
@@ -61,8 +69,8 @@ export const ListItem = (props: ListItemProp) => {
                         <button onClick={toggleEditForm}>
                             <Pencil1Icon />
                         </button>
-                    </ActionItemsStyled>
-                </StyledListItemContent>
+                    </ActionItems>
+                </ListItemContent>
             )}
         </StyledListItem>
     );
