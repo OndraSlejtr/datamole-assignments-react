@@ -50,7 +50,7 @@ _Fix all other bugs and visual imperfections you find._
 -   [x] **F2**: Load todo items
     -   After opening the application, todo items should be loaded from the server
     -   The todo items should be displayed in the `List` component.
--   [ ] **F3**: Add a todo item
+-   [x] **F3**: Add a todo item
     -   Implement logic, which toggles visibility between the "add" button in the `Header` and a `Form` component.
     -   Entering a value inside the `Form` component and submitting it should create a new todo item.
     -   Data should be persisted on the server via an API call.
@@ -68,7 +68,7 @@ _Fix all other bugs and visual imperfections you find._
     -   Sort the list of the todo items:
         -   "todo" items (not "done") should be displayed first,
         -   after that, items should be sorted by their creation date, descending.
--   [ ] **F8**: Count the todo items
+-   [x] **F8**: Count the todo items
     -   Show a number of the "todo"/"done" items in the `Footer`.
 -   [ ] **F9**: `Button` component
     -   Create a `Button` component and use it instead of HTML `button` elements.

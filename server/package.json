@@ -8,5 +8,6 @@
     },
     "dependencies": {
         "json-server": "^0.17.0"
-    }
+    },
+    "packageManager": "yarn@4.1.1"
 }
