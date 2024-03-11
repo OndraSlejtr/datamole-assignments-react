@@ -6,6 +6,11 @@ import { useToggle } from "../hooks/useToggle";
 
 const StyledDiv = styled.header`
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    margin-bottom: 20px;
 
     button {
         all: unset;
@@ -13,12 +18,22 @@ const StyledDiv = styled.header`
         width: 25px;
         height: 25px;
 
+        text-align: center;
+
         background-color: ${(props) => props.theme.colors.grass9};
         border: 1px solid;
-        border-color: ${(props) => props.theme.colors.olive9};
+        border-color: ${(props) => props.theme.colors.blackA7};
         border-radius: 50%;
 
         color: #fff;
+
+        margin: auto 3px;
+    }
+
+    
+    h1 {
+        font-size: 24px;
+        font-weight: 900;
     }
 `;
 
