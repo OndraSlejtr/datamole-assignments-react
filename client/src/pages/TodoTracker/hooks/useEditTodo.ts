@@ -30,10 +30,10 @@ export const useEditTodo = (displayMessageFn: (text: string) => void) => {
         onError: () => displayMessageFn("Error editing todo. 😔"),
         onSuccess: async (editedTodo) => {
             queryClient.setQueryData(TODO_QUERY_KEY, (oldTodos: TodoItem[] | undefined) => {
-                const id = oldTodos?.findIndex((todo) => todo.id === editedTodo.id);
+                const index = oldTodos?.findIndex((todo) => todo.id === editedTodo.id);
 
-                if (id !== undefined) {
-                    return oldTodos?.toSpliced(id, 1, editedTodo);
+                if (index !== undefined && index >= 0) {
+                    return oldTodos?.toSpliced(index, 1, editedTodo);
                 } else {
                     return oldTodos;
                 }

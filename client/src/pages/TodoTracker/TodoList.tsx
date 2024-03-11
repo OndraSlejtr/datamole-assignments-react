@@ -8,9 +8,10 @@ import { useUpdateTodoStatus } from "./hooks/useUpdateTodoStatus";
 type TodoListProps = {
     items: TodoItem[];
     showErrorFn: (error: string) => void;
+    sortFn: (element1: TodoItem, element2: TodoItem) => number;
 };
 
-export const TodoList = ({ items, showErrorFn }: TodoListProps) => {
+export const TodoList = ({ items, sortFn, showErrorFn }: TodoListProps) => {
     const { mutate: editTodo } = useEditTodo(showErrorFn);
     const { mutate: updateTodoStatus } = useUpdateTodoStatus(showErrorFn);
     const { mutate: deleteTodo } = useDeleteTodo(showErrorFn);
@@ -21,7 +22,7 @@ export const TodoList = ({ items, showErrorFn }: TodoListProps) => {
                 <ListItem
                     {...item}
                     onItemDelete={() => {
-                        deleteTodo(item)
+                        deleteTodo(item);
                     }}
                     onItemDoneToggle={() => {
                         updateTodoStatus(item);

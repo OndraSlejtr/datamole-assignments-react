@@ -21,10 +21,10 @@ export const useUpdateTodoStatus = (displayMessageFn: (text: string) => void) =>
         onError: () => displayMessageFn("Error updating todo status. 😔"),
         onSuccess: async (editedTodo) => {
             queryClient.setQueryData(TODO_QUERY_KEY, (oldTodos: TodoItem[] | undefined) => {
-                const id = oldTodos?.findIndex((todo) => todo.id === editedTodo.id);
+                const index = oldTodos?.findIndex((todo) => todo.id === editedTodo.id);
 
-                if (id !== undefined) {
-                    return oldTodos?.toSpliced(id, 1, editedTodo);
+                if (index !== undefined && index >= 0) {
+                    return oldTodos?.toSpliced(index, 1, editedTodo);
                 } else {
                     return oldTodos;
                 }

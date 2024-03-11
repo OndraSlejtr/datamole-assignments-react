@@ -7,6 +7,7 @@ using Yarn workspaces or Nx. Redundant in this case.
 export type TodoItem = {
     label: string;
     isDone: boolean;
-    cratedAt: number;
+    createdAt: number;
     id: number;
+    finishedAt?: number;
 };
