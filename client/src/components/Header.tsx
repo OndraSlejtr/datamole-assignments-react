@@ -17,6 +17,7 @@ const StyledDiv = styled.header`
 
         width: 25px;
         height: 25px;
+        flex-shrink: 0;
 
         text-align: center;
 

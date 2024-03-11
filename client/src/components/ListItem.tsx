@@ -6,13 +6,22 @@ import { Checkbox } from "./Checkbox";
 import { useToggle } from "../hooks/useToggle";
 import { Form } from "./form";
 
-const StyledDiv = styled.div`
+const StyledListItemContent = styled.div`
     display: flex;
     align-items: center;
+    flex-direction: row;
+`;
+
+const StyledListItem = styled.li`
+    height: 35px;
 `;
 
 const Label = styled.label`
     margin-left: 15px;
+`;
+
+const ActionItemsStyled = styled.div`
+    margin-left: auto;
 `;
 
 export type ListItemProp = {
@@ -28,7 +37,7 @@ export const ListItem = (props: ListItemProp) => {
     const { isToggledOn: isEditFormShown, toggle: toggleEditForm } = useToggle();
 
     return (
-        <StyledDiv>
+        <StyledListItem>
             {isEditFormShown ? (
                 <Form
                     initialValue={label}
@@ -39,18 +48,22 @@ export const ListItem = (props: ListItemProp) => {
                     onCancel={toggleEditForm}
                 ></Form>
             ) : (
-                <>
-                    <Checkbox checked={isDone} onCheckedChange={onItemDoneToggle} />
-                    <Label>{label}</Label>
-                    <button onClick={onItemDelete}>
-                        <TrashIcon />
-                    </button>
+                <StyledListItemContent>
+                    <>
+                        <Checkbox checked={isDone} onCheckedChange={onItemDoneToggle} />
+                        <Label>{label}</Label>
+                    </>
+                    <ActionItemsStyled>
+                        <button onClick={onItemDelete}>
+                            <TrashIcon />
+                        </button>
 
-                    <button onClick={toggleEditForm}>
-                        <Pencil1Icon />
-                    </button>
-                </>
+                        <button onClick={toggleEditForm}>
+                            <Pencil1Icon />
+                        </button>
+                    </ActionItemsStyled>
+                </StyledListItemContent>
             )}
-        </StyledDiv>
+        </StyledListItem>
     );
 };
