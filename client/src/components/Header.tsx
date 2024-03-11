@@ -2,6 +2,7 @@ import { PlusIcon } from "@radix-ui/react-icons";
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Form } from "./form";
+import { useToggle } from "../hooks/useToggle";
 
 const StyledDiv = styled.header`
     display: flex;
@@ -28,9 +29,7 @@ type HeaderProps = {
 
 export const Header = (props: HeaderProps) => {
     const { children, onItemAdd } = props;
-
-    const [isAddFormShown, setIsAddFormShown] = useState(false);
-    const toggleAddFormShown = () => setIsAddFormShown((isShown) => !isShown);
+    const { isToggledOn: isAddFormShown, toggle: toggleAddFormShown } = useToggle(false);
 
     return (
         <StyledDiv>
