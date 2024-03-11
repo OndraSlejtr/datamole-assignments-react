@@ -3,6 +3,8 @@ import React from "react";
 import styled from "styled-components";
 
 import { Checkbox } from "./Checkbox";
+import { useToggle } from "../hooks/useToggle";
+import { Form } from "./form";
 
 const StyledDiv = styled.div`
     display: flex;
@@ -23,17 +25,32 @@ export type ListItemProp = {
 
 export const ListItem = (props: ListItemProp) => {
     const { label, isDone, onItemLabelEdit, onItemDoneToggle, onItemDelete } = props;
+    const { isToggledOn: isEditFormShown, toggle: toggleEditForm } = useToggle();
 
     return (
         <StyledDiv>
-            <Checkbox checked={isDone} onCheckedChange={onItemDoneToggle} />
-            <Label>{label}</Label>
-            <button>
-                <TrashIcon />
-            </button>
-            <button onClick={() => onItemDelete()}>
-                <Pencil1Icon />
-            </button>
+            {isEditFormShown ? (
+                <Form
+                    initialValue={label}
+                    onSubmit={(input) => {
+                        onItemLabelEdit(input);
+                        toggleEditForm();
+                    }}
+                    onCancel={toggleEditForm}
+                ></Form>
+            ) : (
+                <>
+                    <Checkbox checked={isDone} onCheckedChange={onItemDoneToggle} />
+                    <Label>{label}</Label>
+                    <button onClick={onItemDelete}>
+                        <TrashIcon />
+                    </button>
+
+                    <button onClick={toggleEditForm}>
+                        <Pencil1Icon />
+                    </button>
+                </>
+            )}
         </StyledDiv>
     );
 };

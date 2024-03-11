@@ -51,7 +51,7 @@ const ErrorDisplayStyled = styled.div`
 export const ErrorDisplay = ({ error, autohideTimer }: ErrorDisplayProps) => {
     return (
         <ErrorDisplayStyled>
-            { error && <ErrorDisplayItemStyled autohideTimer={autohideTimer || 5}>{error}</ErrorDisplayItemStyled> }
+            {error && <ErrorDisplayItemStyled autohideTimer={autohideTimer || 5}>{error}</ErrorDisplayItemStyled>}
         </ErrorDisplayStyled>
     );
 };

@@ -30,7 +30,7 @@ export const TodoTracker = () => {
                 </Header>
 
                 {isFetching && failureCount > 0 && <p>Loading data...</p>}
-                {isSuccess && <TodoList items={todos} />}
+                {isSuccess && <TodoList items={todos} showErrorFn={addError} />}
 
                 <Footer doneItems={doneItems} todoItems={todoItems} />
             </Layout>
