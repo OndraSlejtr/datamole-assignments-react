@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { TodoList } from "./TodoList";
@@ -9,11 +9,19 @@ import { Layout } from "../../components/Layout";
 import { TodoItem } from "../../types/todo";
 
 export const TodoTracker = () => {
-    const [error, setError] = useState({ message: "", timestamp: 0 });
-    const addError = (message: string) => setError({ message, timestamp: Date.now() });
+    const [errorMessage, setErrorMessage] = useState({ message: "", timestamp: 0 });
+    const addError = (message: string) => setErrorMessage({ message, timestamp: Date.now() });
 
-    const { data: todos, isFetching, failureCount, isSuccess } = useGetTodos(addError);
+    const { data: todos, isFetching, failureCount, isSuccess, error } = useGetTodos();
     const { mutate: addTodo } = useAddTodo(addError);
+
+    // This is unoptimal workaround compared to using global callback in Query on Client level
+    // but that would require smarter ErrorDisplay implementation and thus more time.
+    useEffect(() => {
+        if (error) {
+            addError("Error loading data. 😔");
+        }
+    }, [error]);
 
     const doneItems = todos?.filter((todo) => todo.isDone).length;
     const todoItems = todos?.filter((todo) => !todo.isDone).length;
@@ -32,7 +40,7 @@ export const TodoTracker = () => {
 
     return (
         <>
-            <ErrorDisplay error={error.message} key={error.timestamp} />
+            <ErrorDisplay error={errorMessage.message} key={errorMessage.timestamp} />
             <Layout>
                 <Header
                     onItemAdd={(label) => {
@@ -43,7 +51,9 @@ export const TodoTracker = () => {
                 </Header>
 
                 {isFetching && failureCount > 0 && <p>Loading data...</p>}
-                {isSuccess && <TodoList items={todos} showErrorFn={addError} sortFn={sortByCompletionAndCreationDesc} />}
+                {isSuccess && (
+                    <TodoList items={todos} showErrorFn={addError} sortFn={sortByCompletionAndCreationDesc} />
+                )}
 
                 <Footer doneItems={doneItems} todoItems={todoItems} />
             </Layout>

@@ -1,5 +1,5 @@
 import { PlusIcon } from "@radix-ui/react-icons";
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Form } from "./form";
 import { useToggle } from "../hooks/useToggle";
@@ -31,7 +31,6 @@ const StyledDiv = styled.header`
         margin: auto 3px;
     }
 
-    
     h1 {
         font-size: 24px;
         font-weight: 900;

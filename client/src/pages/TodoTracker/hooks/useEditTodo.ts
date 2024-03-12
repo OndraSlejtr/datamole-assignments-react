@@ -1,4 +1,4 @@
-import { useMutation } from "react-query";
+import { useMutation } from "@tanstack/react-query";
 import { API_URL } from "../../../config";
 import { TodoItem } from "../../../types/todo";
 import { TODO_QUERY_KEY } from "./queries";
@@ -26,9 +26,10 @@ const editTodo = async ({ newLabel, oldTodo }: todoEditDetails): Promise<TodoIte
 };
 
 export const useEditTodo = (displayMessageFn: (text: string) => void) => {
-    return useMutation(editTodo, {
+    return useMutation({
+        mutationFn: editTodo,
         onError: () => displayMessageFn("Error editing todo. 😔"),
-        onSuccess: async (editedTodo) => {
+        onSuccess: async (editedTodo: TodoItem) => {
             queryClient.setQueryData(TODO_QUERY_KEY, (oldTodos: TodoItem[] | undefined) => {
                 const index = oldTodos?.findIndex((todo) => todo.id === editedTodo.id);
 

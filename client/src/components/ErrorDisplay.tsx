@@ -5,7 +5,7 @@ type ErrorDisplayProps = {
     autohideTimer?: number;
 };
 
-const ErrorDisplayItemStyled = styled.div<{ autohideTimer: number }>`
+const ErrorDisplayItemStyled = styled.div<{ autohidetimer: number }>`
     border: 1px solid;
 
     background-color: ${(props) => props.theme.colors.red3};
@@ -16,8 +16,8 @@ const ErrorDisplayItemStyled = styled.div<{ autohideTimer: number }>`
     max-width: 600px;
     padding: 20px;
 
-    -webkit-animation: cssAnimation ${(props) => props.autohideTimer}s forwards;
-    animation: cssAnimation ${(props) => props.autohideTimer}s forwards;
+    -webkit-animation: cssAnimation ${(props) => props.autohidetimer}s forwards;
+    animation: cssAnimation ${(props) => props.autohidetimer}s forwards;
 
     @keyframes cssAnimation {
         0% {
@@ -51,7 +51,7 @@ const ErrorDisplayStyled = styled.div`
 export const ErrorDisplay = ({ error, autohideTimer }: ErrorDisplayProps) => {
     return (
         <ErrorDisplayStyled>
-            {error && <ErrorDisplayItemStyled autohideTimer={autohideTimer || 5}>{error}</ErrorDisplayItemStyled>}
+            {error && <ErrorDisplayItemStyled autohidetimer={autohideTimer || 5}>{error}</ErrorDisplayItemStyled>}
         </ErrorDisplayStyled>
     );
 };

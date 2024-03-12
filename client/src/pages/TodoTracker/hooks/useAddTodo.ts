@@ -1,4 +1,4 @@
-import { useMutation } from "react-query";
+import { useMutation } from "@tanstack/react-query";
 import { API_URL } from "../../../config";
 import { TodoItem } from "../../../types/todo";
 import { TODO_QUERY_KEY } from "./queries";
@@ -21,9 +21,10 @@ const postTodo = async (label: string): Promise<TodoItem> => {
 };
 
 export const useAddTodo = (displayMessageFn: (text: string) => void) => {
-    return useMutation(postTodo, {
+    return useMutation({
+        mutationFn: postTodo,
         onError: () => displayMessageFn("Error adding new todo. 😔"),
-        onSuccess: async (newTodo) => {
+        onSuccess: async (newTodo: TodoItem) => {
             queryClient.setQueryData(TODO_QUERY_KEY, (oldTodos: TodoItem[] | undefined) =>
                 oldTodos ? [...oldTodos, newTodo] : [newTodo]
             );

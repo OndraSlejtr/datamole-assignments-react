@@ -1,4 +1,4 @@
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 import { API_URL } from "../../../config";
 import { TodoItem } from "../../../types/todo";
 import { TODO_QUERY_KEY } from "./queries";
@@ -12,6 +12,10 @@ const fetchTodos = async (): Promise<TodoItem[]> => {
     return res.json();
 };
 
-export const useGetTodos = (displayMessageFn: (text: string) => void) => {
-    return useQuery(TODO_QUERY_KEY, fetchTodos, { onError: () => displayMessageFn("Error loading data. 😔") });
+export const useGetTodos = () => {
+    return useQuery({
+        queryKey: TODO_QUERY_KEY,
+        queryFn: fetchTodos,
+        initialData: [],
+    });
 };
