@@ -6,7 +6,6 @@ import { useToggle } from "../hooks/useToggle";
 import { Form } from "./form";
 import { Button } from "./Button";
 
-
 const ActionItems = styled.div`
     margin-left: auto;
     display: none;
@@ -18,7 +17,6 @@ const ListItemContent = styled.div`
     flex-direction: row;
     height: 30px;
 
-    
     &:hover ${ActionItems} {
         display: block;
     }
@@ -37,7 +35,6 @@ const StyledListItem = styled.li`
 const Label = styled.label`
     margin-left: 15px;
 `;
-
 
 export type ListItemProp = {
     label: string;

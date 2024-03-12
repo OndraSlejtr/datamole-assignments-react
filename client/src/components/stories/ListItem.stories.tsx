@@ -34,5 +34,5 @@ export const OnHover: Story = {
 };
 
 OnHover.parameters = {
-    pseudo: { hover: ['div'] },
+    pseudo: { hover: ["div"] },
 };

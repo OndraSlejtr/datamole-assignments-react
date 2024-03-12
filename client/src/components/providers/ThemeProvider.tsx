@@ -10,7 +10,7 @@ const theme = {
         ...grass,
         ...blackA,
         ...red,
-        ...blue
+        ...blue,
     },
 };
 

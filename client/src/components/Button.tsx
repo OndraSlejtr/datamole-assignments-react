@@ -3,7 +3,6 @@ import { styled } from "styled-components";
 type ButtonColor = "info" | "success" | "warning";
 type ButtonType = "submit" | "reset";
 
-
 type ButtonProps = {
     children: React.ReactNode;
     color?: ButtonColor;

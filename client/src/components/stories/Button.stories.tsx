@@ -35,14 +35,18 @@ export const ButtonInfo: Story = {
     },
 };
 
-export const ButtonSuccess: Story = {    args: {
-    children: ["Warning"],
-    symbolOnly: false,
-    color: "warning",
-},};
+export const ButtonSuccess: Story = {
+    args: {
+        children: ["Warning"],
+        symbolOnly: false,
+        color: "warning",
+    },
+};
 
-export const ButtonError: Story = {    args: {
-    children: ["Success"],
-    symbolOnly: false,
-    color: "success",
-},};
+export const ButtonError: Story = {
+    args: {
+        children: ["Success"],
+        symbolOnly: false,
+        color: "success",
+    },
+};

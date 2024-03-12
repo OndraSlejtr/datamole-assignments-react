@@ -6,7 +6,7 @@ import { queryClient } from "../../../query.client";
 
 const updateTodoStatus = async (oldTodo: TodoItem): Promise<TodoItem> => {
     const res = await fetch(`${API_URL}/items/${oldTodo.id}/completion`, {
-        method: "PUT"
+        method: "PUT",
     });
 
     if (!res.ok) {
@@ -22,11 +22,10 @@ export const useUpdateTodoStatus = (displayMessageFn: (text: string) => void) =>
         onError: () => displayMessageFn("Error updating todo status. 😔"),
         onSuccess: async (editedTodo: TodoItem) => {
             queryClient.setQueryData(TODO_QUERY_KEY, (oldTodos: TodoItem[] | undefined) => {
-
                 const index = oldTodos?.findIndex((todo) => todo.id === editedTodo.id);
 
                 if (index !== undefined && index >= 0) {
-                    return oldTodos?.toSpliced(index, 1, editedTodo) ;
+                    return oldTodos?.toSpliced(index, 1, editedTodo);
                 } else {
                     return oldTodos;
                 }
