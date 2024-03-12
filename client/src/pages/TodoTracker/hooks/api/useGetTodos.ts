@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import { API_URL } from "../../../config";
-import { TodoItem } from "../../../types/todo";
+import { API_URL } from "../../../../config";
+import { TodoItem } from "../../../../types/todo";
 import { TODO_QUERY_KEY } from "./queries";
 
 const fetchTodos = async (): Promise<TodoItem[]> => {

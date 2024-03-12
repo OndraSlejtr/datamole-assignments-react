@@ -1,8 +1,8 @@
 import { useMutation } from "@tanstack/react-query";
-import { API_URL } from "../../../config";
-import { TodoItem } from "../../../types/todo";
+import { API_URL } from "../../../../config";
+import { TodoItem } from "../../../../types/todo";
 import { TODO_QUERY_KEY } from "./queries";
-import { queryClient } from "../../../query.client";
+import { queryClient } from "../../../../query.client";
 
 type todoEditDetails = {
     newLabel: string;

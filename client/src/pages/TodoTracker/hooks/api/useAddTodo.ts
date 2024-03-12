@@ -1,8 +1,8 @@
 import { useMutation } from "@tanstack/react-query";
-import { API_URL } from "../../../config";
-import { TodoItem } from "../../../types/todo";
+import { API_URL } from "../../../../config";
+import { TodoItem } from "../../../../types/todo";
 import { TODO_QUERY_KEY } from "./queries";
-import { queryClient } from "../../../query.client";
+import { queryClient } from "../../../../query.client";
 
 const postTodo = async (label: string): Promise<TodoItem> => {
     const res = await fetch(`${API_URL}/items`, {

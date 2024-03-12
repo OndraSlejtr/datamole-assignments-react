@@ -1,9 +1,9 @@
 import { List } from "../../components/List";
 import { ListItem } from "../../components/ListItem";
 import { TodoItem } from "../../types/todo";
-import { useDeleteTodo } from "./hooks/useDeleteTodo";
-import { useEditTodo } from "./hooks/useEditTodo";
-import { useUpdateTodoStatus } from "./hooks/useUpdateTodoStatus";
+import { useDeleteTodo } from "./hooks/api/useDeleteTodo";
+import { useEditTodo } from "./hooks/api/useEditTodo";
+import { useUpdateTodoStatus } from "./hooks/api/useUpdateTodoStatus";
 
 type TodoListProps = {
     items: TodoItem[];
