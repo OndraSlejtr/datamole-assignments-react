@@ -1,10 +1,10 @@
 import { Pencil1Icon, TrashIcon } from "@radix-ui/react-icons";
-import React from "react";
 import styled from "styled-components";
 
 import { Checkbox } from "./Checkbox";
 import { useToggle } from "../hooks/useToggle";
 import { Form } from "./form";
+import { Button } from "./Button";
 
 
 const ActionItems = styled.div`
@@ -28,6 +28,10 @@ const StyledListItem = styled.li`
     padding-bottom: 5px;
     height: 30px;
     list-style-type: none;
+
+    form {
+        height: 30px;
+    }
 `;
 
 const Label = styled.label`
@@ -65,13 +69,13 @@ export const ListItem = (props: ListItemProp) => {
                         <Label>{label}</Label>
                     </>
                     <ActionItems>
-                        <button onClick={onItemDelete}>
+                        <Button onClick={onItemDelete} color="warning">
                             <TrashIcon />
-                        </button>
+                        </Button>
 
-                        <button onClick={toggleEditForm}>
+                        <Button onClick={toggleEditForm} color="info">
                             <Pencil1Icon />
-                        </button>
+                        </Button>
                     </ActionItems>
                 </ListItemContent>
             )}
