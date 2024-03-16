@@ -16,21 +16,21 @@ type Story = StoryObj<typeof Button>;
 export const ButtonSymbolOnly: Story = {
     args: {
         children: [<Pencil1Icon />],
-        symbolOnly: true,
+        $symbolonly: true,
     },
 };
 
 export const ButtonText: Story = {
     args: {
         children: ["Button content"],
-        symbolOnly: false,
+        $symbolonly: false,
     },
 };
 
 export const ButtonInfo: Story = {
     args: {
         children: ["Info content"],
-        symbolOnly: false,
+        $symbolonly: false,
         color: "info",
     },
 };
@@ -38,7 +38,7 @@ export const ButtonInfo: Story = {
 export const ButtonSuccess: Story = {
     args: {
         children: ["Warning"],
-        symbolOnly: false,
+        $symbolonly: false,
         color: "warning",
     },
 };
@@ -46,7 +46,7 @@ export const ButtonSuccess: Story = {
 export const ButtonError: Story = {
     args: {
         children: ["Success"],
-        symbolOnly: false,
+        $symbolonly: false,
         color: "success",
     },
 };

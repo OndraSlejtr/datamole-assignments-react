@@ -17,5 +17,8 @@ export const useGetTodos = () => {
         queryKey: TODO_QUERY_KEY,
         queryFn: fetchTodos,
         initialData: [],
+        meta: {
+            errorMessage: "Failed to fetch list of Todo items. 😔",
+        },
     });
 };

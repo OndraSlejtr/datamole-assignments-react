@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 const FooterStyled = styled.footer`
@@ -21,6 +20,7 @@ type FooterProps = {
 };
 
 export const Footer = ({ todoItems = 0, doneItems = 0 }: FooterProps) => {
+
     return (
         <FooterStyled>
             <FooterItem>Todo: {todoItems}</FooterItem>

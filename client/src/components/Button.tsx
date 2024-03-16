@@ -6,12 +6,12 @@ type ButtonType = "submit" | "reset";
 type ButtonProps = {
     children: React.ReactNode;
     color?: ButtonColor;
-    symbolOnly?: boolean;
+    $symbolonly?: boolean;
     onClick?: () => void;
     type?: ButtonType;
 };
 
-const StyledButton = styled.button<{ color: ButtonColor; symbolOnly: boolean }>`
+const StyledButton = styled.button<{ color: ButtonColor; $symbolonly: boolean }>`
     all: unset;
 
     background-color: ${(props) => {
@@ -32,8 +32,8 @@ const StyledButton = styled.button<{ color: ButtonColor; symbolOnly: boolean }>`
     height: 25px;
 
     margin: auto 1px;
-    padding: 0 ${(props) => (props.symbolOnly ? "0" : "10px")};
-    font-size: ${(props) => (props.symbolOnly ? "inherit" : "80%")};
+    padding: 0 ${(props) => (props.$symbolonly ? "0" : "10px")};
+    font-size: ${(props) => (props.$symbolonly ? "inherit" : "80%")};
 
     text-align: center;
     border: 1px solid;
@@ -48,9 +48,9 @@ const StyledButton = styled.button<{ color: ButtonColor; symbolOnly: boolean }>`
     }
 `;
 
-export const Button = ({ children, color = "info", onClick, symbolOnly = true, type }: ButtonProps) => {
+export const Button = ({ children, color = "info", onClick, $symbolonly = true, type }: ButtonProps) => {
     return (
-        <StyledButton color={color} symbolOnly={symbolOnly} onClick={onClick} type={type}>
+        <StyledButton color={color} $symbolonly={$symbolonly} onClick={onClick} type={type}>
             {children}
         </StyledButton>
     );

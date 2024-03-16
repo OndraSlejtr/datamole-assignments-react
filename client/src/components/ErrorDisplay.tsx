@@ -1,11 +1,12 @@
 import { styled } from "styled-components";
+import { ErrorMessage } from "../hooks/useErrorMessages";
 
 type ErrorDisplayProps = {
-    error: string;
-    autohideTimer?: number;
+    errors: ErrorMessage[];
+    $autohideTimer?: number;
 };
 
-const ErrorDisplayItemStyled = styled.div<{ autohidetimer: number }>`
+const ErrorDisplayItemStyled = styled.div<{ $autohidetimer?: number }>`
     border: 1px solid;
 
     background-color: ${(props) => props.theme.colors.red3};
@@ -15,9 +16,10 @@ const ErrorDisplayItemStyled = styled.div<{ autohidetimer: number }>`
     width: 100%;
     max-width: 600px;
     padding: 20px;
+    margin-bottom: 10px;
 
-    -webkit-animation: cssAnimation ${(props) => props.autohidetimer}s forwards;
-    animation: cssAnimation ${(props) => props.autohidetimer}s forwards;
+    -webkit-animation: cssAnimation ${(props) => props.$autohidetimer}s forwards;
+    animation: cssAnimation ${(props) => props.$autohidetimer}s forwards;
 
     @keyframes cssAnimation {
         0% {
@@ -48,10 +50,10 @@ const ErrorDisplayStyled = styled.div`
     top: 20px;
 `;
 
-export const ErrorDisplay = ({ error, autohideTimer }: ErrorDisplayProps) => {
+export const ErrorDisplay = ({ errors, $autohideTimer }: ErrorDisplayProps) => {
     return (
         <ErrorDisplayStyled>
-            {error && <ErrorDisplayItemStyled autohidetimer={autohideTimer || 5}>{error}</ErrorDisplayItemStyled>}
+            {errors && errors.map(e => <ErrorDisplayItemStyled key={e.timestamp} $autohidetimer={$autohideTimer || 5}>{e.message}</ErrorDisplayItemStyled>)}
         </ErrorDisplayStyled>
     );
 };
